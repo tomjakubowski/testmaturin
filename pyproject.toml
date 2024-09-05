@@ -1,0 +1,32 @@
+[build-system]
+requires = ["maturin>=1.7,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "testmaturin"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = ["cffi"]
+dynamic = ["version"]
+
+[tool.maturin]
+bindings = "cffi"
+# https://www.maturin.rs/project_layout#data
+# some valid and invalid values for this appear below
+
+### builds + installs data files correctly to sys.prefix
+### also the default value
+# data = "testmaturin.data"
+
+### perspective-python style, works also
+### if this directory exists, and testmaturin.data doesn't, then it is used as the default
+# data = "testmaturin-0.1.0.data"
+
+### The value "CoolData" is broken.  maturin creates a wheel which contains that file, but it
+### doesn't correctly unpack its data files into sys.prefix (instead CoolData just
+### sits under site-packages)
+# data = "CoolData"

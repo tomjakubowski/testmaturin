@@ -1,0 +1,4 @@
+my cool data, from CoolData - doesn't install correctly
+this should be unpacked right into sys.prefix, i.e. .venv/
+
+(but it isn't)

@@ -1,0 +1,2 @@
+my cool data A, from testmaturin.data
+this should be unpacked right into sys.prefix, i.e. .venv/
